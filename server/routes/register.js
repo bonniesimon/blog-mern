@@ -4,6 +4,17 @@ const router = express.Router();
 
 const userModel = require('./../models/Users');
 
+/**
+ * *user defined functions
+ * @username : String
+ * @password : String
+ */
+const validator = (username, password) => {
+    if(!username || !passoword){
+        return 0;
+    }
+    return 1;
+} 
 
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
@@ -12,7 +23,8 @@ router.post('/', async (req, res) => {
      * TODO: check if user already exist
      */
     /**Checking if username and passwword are present */
-    if (!username || !password) {
+    
+    if (!validator(username, password)) {
         return res.status(401).json({ "Error": "No credentials" });
     }
 
@@ -20,7 +32,6 @@ router.post('/', async (req, res) => {
     const user = await userModel.findOne({ username: username })
 
     if (user) {
-        userExists = true;
         res.json({ "Error": "User already Exists" });
     //If new user, then registering to DB
     } else {
