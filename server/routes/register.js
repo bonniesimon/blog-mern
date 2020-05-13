@@ -9,18 +9,15 @@ const userModel = require('./../models/Users');
  * @username : String
  * @password : String
  */
-const validator = (username, password) => {
-    if(!username || !passoword){
-        return 0;
-    }
-    return 1;
-} 
+
+// *Validator Function
+const validator = require('./utilities/validator');
 
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
     /**
      * //TODO: save a user to DB
-     * TODO: check if user already exist
+     * //TODO: check if user already exist
      */
     /**Checking if username and passwword are present */
     
@@ -41,11 +38,13 @@ router.post('/', async (req, res) => {
         })
         try{
             const savedUser = await newUser.save()
+            //! The following if statement should be in the try
+            //! Or the savedUser will become Undefined
+            if (savedUser) {
+                res.status(201).json({ "result": "success; user created" });
+            }
         }catch(err){
             console.log(err);
-        }
-        if (savedUser) {
-            res.status(200).json({ "result": "success; user created" });
         }
     }
 

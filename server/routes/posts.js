@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 /**
  * Importing Model
@@ -7,14 +8,19 @@ const router = express.Router();
 
 const PostModel = require('./../models/postSchema');
 
+// *Importing auth middleware
+const authenticateJWT = require('./utilities/authenticateJWT');
+
+
 router.get('/', (req ,res) => {
     res.status(200).json("Sucess");
 })
 
-router.post('/', (req, res) => {
+router.post('/', authenticateJWT, (req, res) => {
+    const {title, body} = req.body;
     let newPost = new PostModel({
-        title:"First Post",
-        body:"Hey there trying to do a blogging site",
+        title,
+        body
     })
 
     newPost.save()

@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const jwt = require('jsonwebtoken');
 require('dotenv').config()
 
 /**
@@ -14,6 +14,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
+
+
 
 
 
@@ -39,3 +41,12 @@ try{
 }catch(err){
     console.log(err);
 }
+
+
+
+/**
+ * TODO:[x] Check and match password
+ * TODO:[x] Pass whole user info at authenticateJWT
+ * TODO:[] Hash Password
+ * TODO:[] Add user as a foreign key to posts
+ */
