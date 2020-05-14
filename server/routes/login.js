@@ -34,7 +34,13 @@ router.post('/',async (req, res) => {
         if(user.password === password){
 
             const accessToken = jwt.sign({username : user.username, user_id: user._id},process.env.ACCESS_TOKEN_SECRET);
-            res.send({"token":accessToken});
+            res.send({
+                "token":accessToken,
+                "user": {
+                    "username": user.username,
+                    "id": user.id
+                }
+            });
         }
         else{
             res.status(401).json({"Error": "Password or Email doesn't match"});
