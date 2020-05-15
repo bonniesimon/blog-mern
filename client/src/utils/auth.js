@@ -10,10 +10,10 @@ export const removeStoredAuthToken = () => {
     localStorage.removeItem('authToken');
 }
 
-export const setUser = (user) => {
+export const storeUser = (user) => {
     localStorage.setItem('user', JSON.stringify(user));
 }
 
-export const getUser = () => {
+export const getStoredUser = () => {
     return JSON.parce(localStorage.getItem('user'));
 }
