@@ -53,7 +53,7 @@ const Login = () => {
         const {resData, status} = await fetchData('http://localhost:5000/login', { username, password });
         console.log(resData, status);
         if(status === 200){
-            storeAuthToken(resData.status);
+            storeAuthToken(resData.token);
             storeUser(resData.user);
             history.push('/');
         }

@@ -7,7 +7,7 @@ const DashBoard = () => {
     let history = useHistory();
     useEffect(() => {
         
-        if(!getStoredAuthToken()){
+        if(!getStoredAuthToken() || getStoredAuthToken() === undefined){
             history.push('/login');
         }
     },[])
