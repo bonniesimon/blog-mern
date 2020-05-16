@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import {PrivateRoute} from './utils/PrivateRoute';
 
 import './App.css';
 
@@ -11,7 +12,7 @@ function App() {
   return (
       <Router>
           <Switch>
-              <Route path="/" exact component={DashBoard} />
+              <PrivateRoute exact path="/" component={DashBoard} />
               <Route path="/login" component={Login}/>
           </Switch>
       </Router>

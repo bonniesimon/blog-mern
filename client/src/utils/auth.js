@@ -15,5 +15,5 @@ export const storeUser = (user) => {
 }
 
 export const getStoredUser = () => {
-    return JSON.parce(localStorage.getItem('user'));
+    return JSON.parse(localStorage.getItem('user'));
 }
