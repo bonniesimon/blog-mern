@@ -1,19 +1,21 @@
 import React,{useEffect, useState} from 'react'
 import {useHistory} from 'react-router-dom';
 
-import {getStoredAuthToken, getStoredUser} from "../../utils/auth";
+import {removeStoredAuthToken, getStoredAuthToken, getStoredUser, removeStoredUser} from "../../utils/auth";
 
 const DashBoard = () => {
     const [user, setUser] = useState({});
 
     let history = useHistory();
 
-    useEffect((history) => {
-        if(!getStoredAuthToken() || getStoredAuthToken() === undefined){
-            history.push('/login');
-        }
+    useEffect(() => {
+        // if(!getStoredAuthToken() || getStoredAuthToken() === undefined){
+        //     history.push('/login');
+        // }
         setUserDetails();
     },[])
+
+    
 
     
     const setUserDetails = () => {
@@ -22,10 +24,20 @@ const DashBoard = () => {
         setUser(userDetails);
     }
 
+
+    const logOutHandler = (e) => {
+        e.preventDefault();
+        removeStoredAuthToken();
+        removeStoredUser();
+        setUser('');
+        history.push('/login');
+    }
+
     return (
         <div>
             <h1>Welcome to the DashBoard!</h1>
             <p>Welcome {user.username}</p>
+            <button onClick={logOutHandler}>logout</button>
         </div>
     )
 }

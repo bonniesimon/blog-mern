@@ -1,18 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {useHistory} from 'react-router-dom';
 
-import {storeAuthToken, storeUser} from '../../utils/auth';
+import {getStoredAuthToken, storeAuthToken, storeUser} from '../../utils/auth';
 
 
 /**
- * TODO: [] useEffect to check if user already logged in
+ * TODO: [x] useEffect to check if user already logged in
  *          * Check if authToken and user present in localStorage. 
+ * TODO: [] Return error if status is not 200 i.e if user login failed
  */
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState({});
     const history = useHistory();
+
+    // *To check if user already logged in
+    useEffect(() => {
+        const token = getStoredAuthToken();        
+        if(token){
+            history.push('/');
+        }
+    }, [])
+
+    useEffect(() => {
+        if(error.Error === "User needs to register") {
+            history.push('/register');
+        }
+        
+    }, [error])
 
     const updateUsername = e => {
         const usernameValue = e.target.value;
@@ -28,7 +45,7 @@ const Login = () => {
      * 
      * @param {string} URL 
      * @param {object} data
-     * @return JWT 
+     * @return {{token, user}, status} 
      */
     const fetchData = async (URL, data) => {
         const response = await fetch(URL, {
@@ -56,6 +73,8 @@ const Login = () => {
             storeAuthToken(resData.token);
             storeUser(resData.user);
             history.push('/');
+        }else if(status !== 200){
+            setError(resData);
         }
         
     }
