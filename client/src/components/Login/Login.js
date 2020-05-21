@@ -50,6 +50,7 @@ const Login = () => {
      * @return {{token, user}, status} 
      */
     const fetchData = async (URL, data) => {
+        console.log("Clicked")
         const response = await fetch(URL, {
             method: 'POST',
             headers: {
@@ -69,6 +70,7 @@ const Login = () => {
 
     const onFormSubmit = async e => {
         e.preventDefault();
+
         const { resData, status } = await fetchData('http://localhost:5000/login', { username, password });
         console.log(resData, status);
         if (status === 200) {
@@ -85,23 +87,29 @@ const Login = () => {
 
 
     return (
-        <div className="logincontainer">
+        <div className="login-page">
             <div className="formcontainer">
-                <form onSubmit={onFormSubmit} className="input-container" >
-                    <div className="input-container__heading">
+                <form onSubmit={onFormSubmit} className="form" >
+                    <div className="form__heading">
                         <h1 className="focus-in-contract">Login</h1>
                     </div>
-                    <div className="field">
-                        <label htmlFor="username">Username</label>    
-                        <input type="text" id="username" name="username" value={username} onChange={updateUsername} />
+                    <div className="form__components">
+                        <div className="field">
+                            <label htmlFor="username">Username</label>
+                            <input className="field__input" type="text" id="username" name="username" value={username} onChange={updateUsername} />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="password">Password</label>
+                            <input className="field__input" type="password" id="password" name="password" value={password} onChange={updatePassword} />
+                        </div>
+                        <div className="buttons-container">
+                            <button type="reset" className="btn btn-reset">Reset</button>
+                            {/* <button type="submit" className="btn btn-submit">Submit</button> */}
+                            <input type="submit" value="Login" className="btn" onClick={onFormSubmit} />
+                        </div>
                     </div>
-                    <div className="field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" value={password} onChange={updatePassword} />
-                    </div>
-                    <div className="buttons-container">
-                        <button type="reset" className="btn btn-reset">Reset</button>
-                        <button type="submit" className="btn btn-submit">Submit</button>
+                    <div className="form__footer">
+                        <p>Not Already a member</p>
                     </div>
                 </form>
             </div>

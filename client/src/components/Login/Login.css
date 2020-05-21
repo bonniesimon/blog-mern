@@ -18,11 +18,12 @@
     white
     =====================
 */
-.logincontainer {
+.login-page {
   height: 100vh;
   width: 100vw;
-  background-color: #284b63;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%233c6e71' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%231b5671'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background: #5bc0be;
+  background: -webkit-gradient(linear, left top, right top, from(#5bc0be), to(#6fffe9));
+  background: linear-gradient(90deg, #5bc0be 0%, #6fffe9 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,17 +35,47 @@
           justify-content: center;
 }
 
-.logincontainer .formcontainer {
-  background-color: #6fffe9;
+.login-page .formcontainer {
+  background-color: #1c2541;
   -webkit-box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
           box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
-  width: 50vw;
+  border-radius: 10px;
+  width: 40vw;
   height: 80vh;
 }
 
-.logincontainer .formcontainer .input-container {
+.login-page .formcontainer .form {
   height: 100%;
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.login-page .formcontainer .form__heading {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.login-page .formcontainer .form__heading h1 {
+  color: #5bc0be;
+  text-transform: capitalize;
+}
+
+.login-page .formcontainer .form__components {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,283 +91,143 @@
           justify-content: center;
 }
 
-.logincontainer .formcontainer .input-container__heading {
-  position: absolute;
-  top: 0;
+.login-page .formcontainer .form__components .field {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  border-bottom: 2px dashed #f7f7f7;
+  margin: 4rem auto 1rem;
 }
 
-.logincontainer .formcontainer .input-container__heading h1 {
-  text-transform: capitalize;
-  color: #0b132b;
+.login-page .formcontainer .form__components .field label {
+  color: #f7f7f7;
+  font-size: 1.2rem;
 }
 
-button.arrowFromLeft {
-  border: none;
+.login-page .formcontainer .form__components .field__input {
   outline: none;
-  padding: 11px 38px;
+  border: none;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  padding: 0.25rem 0;
+  background: none;
+  color: #f7f7f7;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.login-page .formcontainer .form__components .field::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #5bc0be;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: 0%;
+          transform-origin: 0%;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
+  top: 2px;
+}
+
+.login-page .formcontainer .form__components .field:focus-within {
+  border-color: transparent;
+}
+
+.login-page .formcontainer .form__components .field:focus-within::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.login-page .formcontainer .form__components .buttons-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.login-page .formcontainer .form__components .buttons-container .btn {
+  margin: 1rem auto;
+  outline: none;
+  border: none;
+  padding: 0.7rem 1rem;
+  background-color: #5bc0be;
+  border-radius: 2px;
+}
+
+.login-page .formcontainer .form__components .buttons-container .btn:hover {
+  background-color: #BFD7EA;
+  cursor: pointer;
+}
+
+.login-page .formcontainer .form__footer {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+/*
+========================
+*Media Queries
+========================
+*/
+@media (max-width: 768px) {
+  .login-page .formcontainer {
+    width: 80vw;
+  }
+}
+
+.buttonLeft {
+  height: 40px;
+  width: 120px;
+  padding: 0 14px;
   overflow: hidden;
   background: #474E51;
   position: relative;
+  line-height: 40px;
   color: #fff;
   text-align: center;
 }
 
-.arrowFromLeft div {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.arrowFromLeft:hover span {
-  -webkit-transform: translateX(15px);
-          transform: translateX(15px);
-}
-
-.arrowFromLeft:hover svg {
-  opacity: 1;
-  -webkit-transform: translateX(15px);
-          transform: translateX(15px);
-}
-
-.arrowFromLeft span {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: -webkit-transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955), -webkit-transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
-
-.arrowFromLeft svg {
+.buttonLeft::before {
+  content: '';
   position: absolute;
-  top: 17px;
-  left: 10px;
-  fill: white;
-  opacity: 0;
-  -webkit-transform: translateX(-10px);
-          transform: translateX(-10px);
-  -webkit-transition: opacity 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955), -webkit-transform 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: opacity 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955), -webkit-transform 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: opacity 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: opacity 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955), -webkit-transform 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  background: #5778F3;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
-/*
-===================================================================
-Animations 
-===================================================================
-*/
-/* ----------------------------------------------
-* Generated by Animista on 2020-5-19 12:39:3
-* Licensed under FreeBSD License.
-* See http://animista.net/license for more info. 
-* w: http://animista.net, t: @cssanimista
-* ---------------------------------------------- */
-.flicker-in-1 {
-  -webkit-animation: flicker-in-1 2s linear both;
-  animation: flicker-in-1 2s linear both;
+.buttonLeft:hover::before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
-/**
- * ----------------------------------------
- * @animation flicker-in-1
- * ----------------------------------------
- */
-@-webkit-keyframes flicker-in-1 {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  10.1% {
-    opacity: 1;
-  }
-  10.2% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  20.1% {
-    opacity: 1;
-  }
-  20.6% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  30.1% {
-    opacity: 1;
-  }
-  30.5% {
-    opacity: 1;
-  }
-  30.6% {
-    opacity: 0;
-  }
-  45% {
-    opacity: 0;
-  }
-  45.1% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  55% {
-    opacity: 1;
-  }
-  55.1% {
-    opacity: 0;
-  }
-  57% {
-    opacity: 0;
-  }
-  57.1% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  60.1% {
-    opacity: 0;
-  }
-  65% {
-    opacity: 0;
-  }
-  65.1% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  75.1% {
-    opacity: 0;
-  }
-  77% {
-    opacity: 0;
-  }
-  77.1% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  85.1% {
-    opacity: 0;
-  }
-  86% {
-    opacity: 0;
-  }
-  86.1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes flicker-in-1 {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  10.1% {
-    opacity: 1;
-  }
-  10.2% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  20.1% {
-    opacity: 1;
-  }
-  20.6% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  30.1% {
-    opacity: 1;
-  }
-  30.5% {
-    opacity: 1;
-  }
-  30.6% {
-    opacity: 0;
-  }
-  45% {
-    opacity: 0;
-  }
-  45.1% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  55% {
-    opacity: 1;
-  }
-  55.1% {
-    opacity: 0;
-  }
-  57% {
-    opacity: 0;
-  }
-  57.1% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  60.1% {
-    opacity: 0;
-  }
-  65% {
-    opacity: 0;
-  }
-  65.1% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  75.1% {
-    opacity: 0;
-  }
-  77% {
-    opacity: 0;
-  }
-  77.1% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  85.1% {
-    opacity: 0;
-  }
-  86% {
-    opacity: 0;
-  }
-  86.1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
+.buttonLeft span {
+  position: relative;
+  z-index: 1;
 }
 
 /* ----------------------------------------------
