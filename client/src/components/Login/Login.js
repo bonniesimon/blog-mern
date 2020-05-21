@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import {getStoredAuthToken, storeAuthToken, storeUser} from '../../utils/auth';
+import { getStoredAuthToken, storeAuthToken, storeUser } from '../../utils/auth';
+
+import './Login.css'
 
 
 /**
@@ -18,17 +20,17 @@ const Login = () => {
 
     // *To check if user already logged in
     useEffect(() => {
-        const token = getStoredAuthToken();        
-        if(token){
+        const token = getStoredAuthToken();
+        if (token) {
             history.push('/');
         }
     }, [])
 
     useEffect(() => {
-        if(error.Error === "User needs to register") {
+        if (error.Error === "User needs to register") {
             history.push('/register');
         }
-        
+
     }, [error])
 
     const updateUsername = e => {
@@ -59,36 +61,50 @@ const Login = () => {
         const status = response.status;
         const resData = await response.json();
         // console.log(response.status);
-        return {resData, status};
+        return { resData, status };
     }
 
-    
 
 
-    const onFormSubmit =async e => {
+
+    const onFormSubmit = async e => {
         e.preventDefault();
-        const {resData, status} = await fetchData('http://localhost:5000/login', { username, password });
+        const { resData, status } = await fetchData('http://localhost:5000/login', { username, password });
         console.log(resData, status);
-        if(status === 200){
+        if (status === 200) {
             storeAuthToken(resData.token);
             storeUser(resData.user);
             history.push('/');
-        }else if(status !== 200){
+        } else if (status !== 200) {
             setError(resData);
         }
-        
+
     }
 
 
 
 
     return (
-        <div>
-            <form onSubmit={onFormSubmit} >
-                <input type="text" name="username" value={username} onChange={updateUsername} />
-                <input type="password" name="password" value={password} onChange={updatePassword} />
-                <input type="submit" value="Login" />
-            </form>
+        <div className="logincontainer">
+            <div className="formcontainer">
+                <form onSubmit={onFormSubmit} className="input-container" >
+                    <div className="input-container__heading">
+                        <h1 className="focus-in-contract">Login</h1>
+                    </div>
+                    <div className="field">
+                        <label htmlFor="username">Username</label>    
+                        <input type="text" id="username" name="username" value={username} onChange={updateUsername} />
+                    </div>
+                    <div className="field">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" name="password" value={password} onChange={updatePassword} />
+                    </div>
+                    <div className="buttons-container">
+                        <button type="reset" className="btn btn-reset">Reset</button>
+                        <button type="submit" className="btn btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
