@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
+import Particles from 'react-particles-js';
 
 import { getStoredAuthToken, storeAuthToken, storeUser } from '../../utils/auth';
 
@@ -87,33 +88,78 @@ const Login = () => {
 
 
     return (
-        <div className="login-page">
-            <div className="formcontainer">
-                <form onSubmit={onFormSubmit} className="form" >
-                    <div className="form__heading">
-                        <h1 className="focus-in-contract">Login</h1>
-                    </div>
-                    <div className="form__components">
-                        <div className="field">
-                            <label htmlFor="username">Username</label>
-                            <input className="field__input" type="text" id="username" name="username" value={username} onChange={updateUsername} />
+        <>
+            <div className="login-page">
+                <Particles
+                    params={{
+                        "particles": {
+                            "number": {
+                                "value": 160,
+                                "density": {
+                                    "enable": false
+                                }
+                            },
+                            "size": {
+                                "value": 10,
+                                "random": true
+                            },
+                            "move": {
+                                "direction": "bottom",
+                                "out_mode": "out"
+                            },
+                            "line_linked": {
+                                "enable": false
+                            },
+                        },
+                        "interactivity": {
+                            "events": {
+                                "onclick": {
+                                    "enable": true,
+                                    "mode": "remove"
+                                }
+                            },
+                            "modes": {
+                                "remove": {
+                                    "particles_nb": 10
+                                }
+                            }
+                        }
+                    }}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0
+                    }}
+                />
+                <div className="formcontainer">
+                    <form onSubmit={onFormSubmit} className="form" >
+                        <div className="form__heading">
+                            <h1 className="focus-in-contract">Login</h1>
                         </div>
-                        <div className="field">
-                            <label htmlFor="password">Password</label>
-                            <input className="field__input" type="password" id="password" name="password" value={password} onChange={updatePassword} />
+                        <div className="form__components">
+                            <div className="field">
+                                <label htmlFor="username">Username</label>
+                                <input className="field__input" type="text" id="username" name="username" value={username} onChange={updateUsername} />
+                            </div>
+                            <div className="field">
+                                <label htmlFor="password">Password</label>
+                                <input className="field__input" type="password" id="password" name="password" value={password} onChange={updatePassword} />
+                            </div>
+                            <div className="buttons-container">
+                                <button type="reset" className="btn btn-reset">Reset</button>
+                                {/* <button type="submit" className="btn btn-submit">Submit</button> */}
+                                <input type="submit" value="Login" className="btn" onClick={onFormSubmit} />
+                            </div>
                         </div>
-                        <div className="buttons-container">
-                            <button type="reset" className="btn btn-reset">Reset</button>
-                            {/* <button type="submit" className="btn btn-submit">Submit</button> */}
-                            <input type="submit" value="Login" className="btn" onClick={onFormSubmit} />
+                        <div className="form__footer">
+                            <p>Not Already a member</p>
                         </div>
-                    </div>
-                    <div className="form__footer">
-                        <p>Not Already a member</p>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

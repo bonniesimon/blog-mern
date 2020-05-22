@@ -1,9 +1,10 @@
 {
   "dependencies": {
+    "react-particles-js": "^3.2.1",
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
-      "dev":"echo /'Get Into Server Directory/'",
-      "start": "echo /'Get into Client Directory/'"
+    "dev": "echo /'Get Into Server Directory/'",
+    "start": "echo /'Get into Client Directory/'"
   }
 }
