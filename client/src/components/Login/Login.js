@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Particles from 'react-particles-js';
 
 import { getStoredAuthToken, storeAuthToken, storeUser } from '../../utils/auth';
@@ -154,7 +154,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="form__footer">
-                            <p>Not Already a member</p>
+                            <p>Not Already a member?<Link className="register-link" to="/register">Register</Link></p>
                         </div>
                     </form>
                 </div>
