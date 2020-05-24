@@ -29,7 +29,12 @@ const Login = () => {
 
     useEffect(() => {
         if (error.Error === "User needs to register") {
-            history.push('/register');
+            history.push({
+				pathname:'/register',
+				state:{
+					needToRegister:true
+				}
+			});
         }
 
     }, [error])
@@ -73,7 +78,7 @@ const Login = () => {
         e.preventDefault();
 
         const { resData, status } = await fetchData('http://localhost:5000/login', { username, password });
-        console.log(resData, status);
+        // console.log(resData, status);
         if (status === 200) {
             storeAuthToken(resData.token);
             storeUser(resData.user);
@@ -154,7 +159,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="form__footer">
-                            <p>Not Already a member?<Link className="register-link" to="/register">Register</Link></p>
+                            <p>Not Already a member?<Link className="register-link" to={{pathname:'/register', state:{fromLogin:true}}}>Register</Link></p>
                         </div>
                     </form>
                 </div>
