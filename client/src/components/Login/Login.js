@@ -159,7 +159,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="form__footer">
-                            <p>Not Already a member?<Link className="register-link" to={{pathname:'/register', state:{fromLogin:true}}}>Register</Link></p>
+                            <p>Not Already a member?<Link className="register-link" to={{pathname:'/register', state:{from:'login'}}}>Register</Link></p>
                         </div>
                     </form>
                 </div>

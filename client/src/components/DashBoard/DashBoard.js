@@ -30,7 +30,12 @@ const DashBoard = () => {
         removeStoredAuthToken();
         removeStoredUser();
         setUser('');
-        history.push('/login');
+        history.push({
+            pathname:'/login',
+            state:{
+                from:'dashboard'
+            }
+        });
     }
 
     return (
