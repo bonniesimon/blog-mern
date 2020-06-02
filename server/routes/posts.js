@@ -13,9 +13,13 @@ const authenticateJWT = require('./utilities/authenticateJWT');
 
 
 router.get('/', async (req ,res) => {
-    res.status(200).json("Sucess");
+    // *posts type=Array[objects]
     const posts = await PostModel.find();
-    console.log(posts)
+    if(posts){
+        res.json(posts).status(200);
+    }else{
+        res.status(503);
+    }
 })
 
 router.post('/', authenticateJWT, (req, res) => {
