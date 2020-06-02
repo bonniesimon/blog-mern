@@ -1,0 +1,25 @@
+/*
+    light-blue
+    dark-blue
+    darker-blue
+    dark
+    light-green-blue
+    green-blue
+    white
+*/
+.post {
+  width: 60%;
+  min-height: 3rem;
+  background-color: #3a506b;
+  margin: 3rem auto;
+}
+
+.post__title {
+  text-align: left;
+  padding: 0.8rem;
+}
+
+.post__body {
+  padding: 1rem;
+}
+/*# sourceMappingURL=PostItem.css.map */

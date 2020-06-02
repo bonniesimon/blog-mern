@@ -6,6 +6,7 @@ import { removeStoredAuthToken, getStoredAuthToken, getStoredUser, removeStoredU
 
 //*COMPONENT IMPORT
 import Navbar from './../Navbar';
+import PostItem from '../PostItem/PostItem';
 
 const DashBoard = () => {
     const [user, setUser] = useState({});
@@ -58,7 +59,7 @@ const DashBoard = () => {
                 <h1>Welcome to the DashBoard!</h1>
                 <p>Welcome {user.username}</p>
                 <button onClick={logOutHandler}>logout</button>
-                {posts.map((item) => <h1 key={item._id}>{item.body}</h1>)}
+                {posts.map((post) => <PostItem title={post.title} body={post.body} />)}
             </div>
         </>
     )

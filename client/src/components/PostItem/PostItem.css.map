@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACQA;;;;;;;;EAQE;ADfF,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,GAAG;EACV,UAAU,EAAE,IAAI;EAChB,gBAAgB,ECHT,OAAO;EDId,MAAM,EAAE,SAAS;CASpB;;AARI,AAAD,YAAQ,CAAA;EACJ,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,MAAM;CAElB;;AACA,AAAD,WAAO,CAAA;EACH,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "PostItem.scss",
+        "../../CSS/_colors.scss"
+    ],
+    "names": [],
+    "file": "PostItem.css"
+}

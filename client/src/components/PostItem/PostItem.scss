@@ -1,0 +1,15 @@
+@import './../../CSS/colors';
+.post{
+    width: 60%;
+    min-height: 3rem;
+    background-color: $dark-blue;
+    margin: 3rem auto;
+    &__title{
+        text-align: left;
+        padding: 0.8rem;
+        
+    }
+    &__body{
+        padding: 1rem; 
+    }
+}
