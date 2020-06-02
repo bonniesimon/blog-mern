@@ -18,8 +18,8 @@ router.get('/', async (req ,res) => {
     if(posts){
         res.json(posts).status(200);
     }else{
-        res.status(503);
     }
+    res.status(503);
 })
 
 router.post('/', authenticateJWT, (req, res) => {
