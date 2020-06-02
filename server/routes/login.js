@@ -26,7 +26,7 @@ const validator = require('./utilities/validator');
 router.post('/',async (req, res) => {
     const {username, password} = req.body;
     if(!validator(username, password)){
-        return res.status(401).json({ "Error": "No credentials" });
+        return res.status(400).json({ "Error": "no credentials" });
     }
 
     const user = await userModel.findOne({username:username});
@@ -43,12 +43,12 @@ router.post('/',async (req, res) => {
             });
         }
         else{
-            res.status(401).json({"Error": "Password or Email doesn't match"});
+            res.status(400).json({"Error": "password or email doesn't match"});
         }
     }
     //If user doen't exits
     else{
-        return res.status(401).json({"Error": "User needs to register"});
+        return res.status(401).json({"Error": "user needs to register"});
     }
 
 

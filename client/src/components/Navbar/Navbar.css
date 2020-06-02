@@ -1,0 +1,99 @@
+/*
+    light-blue
+    dark-blue
+    darker-blue
+    dark
+    light-green-blue
+    green-blue
+    white
+*/
+/*
+    light-blue
+    dark-blue
+    darker-blue
+    dark
+    light-green-blue
+    green-blue
+    white
+*/
+.navbar {
+  height: 4rem;
+  background-color: #BFD7EA;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar__heading {
+  width: 30%;
+}
+
+.navbar__heading h1 {
+  text-align: center;
+}
+
+.navbar .nav {
+  margin-left: auto;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar .nav__links {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  width: 100%;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.navbar .nav__links .link-items a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar .nav__user {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.navbar .nav__user .user__avatar {
+  height: 2rem;
+  width: 2rem;
+  background-color: pink;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=Navbar.css.map */

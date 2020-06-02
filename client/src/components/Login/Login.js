@@ -82,7 +82,7 @@ const Login = () => {
         if (status === 200) {
             storeAuthToken(resData.token);
             storeUser(resData.user);
-            history.push('/');
+            history.push({pathname:'/', state:{}});
         } else if (status !== 200) {
             setError(resData);
         }

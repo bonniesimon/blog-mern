@@ -1,0 +1,59 @@
+@import './../../CSS/colors';
+/*
+    light-blue
+    dark-blue
+    darker-blue
+    dark
+    light-green-blue
+    green-blue
+    white
+*/
+
+.navbar{
+    height: 4rem;
+    background-color: $light-blue;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__heading{
+        width: 30%;
+        h1{
+            text-align: center;
+        }
+    }
+    .nav{
+        margin-left: auto;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &__links{
+            flex: 3;
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            .link-items{
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+        &__user{
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            // align-items: center;
+            .user__avatar{
+                height: 2rem;
+                width: 2rem;
+                background-color: pink;
+                border-radius: 50%;
+            }
+        }
+    }
+}
