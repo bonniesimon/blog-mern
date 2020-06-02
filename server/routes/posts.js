@@ -12,8 +12,10 @@ const PostModel = require('./../models/postSchema');
 const authenticateJWT = require('./utilities/authenticateJWT');
 
 
-router.get('/', (req ,res) => {
+router.get('/', async (req ,res) => {
     res.status(200).json("Sucess");
+    const posts = await PostModel.find();
+    console.log(posts)
 })
 
 router.post('/', authenticateJWT, (req, res) => {

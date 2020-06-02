@@ -80,7 +80,7 @@ const Login = () => {
 
     const onFormSubmit = async e => {
         e.preventDefault();
-
+        //*Fetching data from API
         const { resData, status } = await fetchData('http://localhost:5000/login', { username, password });
         // console.log(resData, status);
         if (status === 200) {
@@ -88,6 +88,7 @@ const Login = () => {
             storeUser(resData.user);
             history.push({pathname:'/', state:{}});
         } else if (status !== 200) {
+            //* Try Implementing react-toast-notifications here to display erro
             setError(resData);
         }
 

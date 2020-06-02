@@ -4,7 +4,8 @@ import {useHistory} from 'react-router-dom';
 import {removeStoredAuthToken, getStoredAuthToken, getStoredUser, removeStoredUser} from "../../utils/auth";
 
 
-
+//*COMPONENT IMPORT
+import Navbar from './../Navbar';
 
 const DashBoard = () => {
     const [user, setUser] = useState({});
@@ -42,11 +43,14 @@ const DashBoard = () => {
     }
 
     return (
+        <>
+        <Navbar/>
         <div>
             <h1>Welcome to the DashBoard!</h1>
             <p>Welcome {user.username}</p>
             <button onClick={logOutHandler}>logout</button>
         </div>
+        </>
     )
 }
 

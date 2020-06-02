@@ -8,12 +8,11 @@ import './App.css';
 import Login from './components/Login';
 import DashBoard from './components/DashBoard';
 import Register from './components/Register';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 
 function App() {
   return (
       <>
-      <Navbar/>
       <Router>
           <Switch>
               <PrivateRoute exact path="/" component={DashBoard} />
