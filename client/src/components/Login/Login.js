@@ -14,6 +14,10 @@ import './Login.css'
  */
 
 const Login = () => {
+    /**
+     * *How user is returned from server
+     * user = {username:username, id:id}
+     */
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
