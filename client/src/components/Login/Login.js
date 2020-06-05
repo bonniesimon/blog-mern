@@ -60,7 +60,7 @@ const Login = () => {
      * @return {{token, user}, status} 
      */
     const fetchData = async (URL, data) => {
-        console.log("Clicked")
+        // console.log("Clicked")
         const response = await fetch(URL, {
             method: 'POST',
             headers: {
@@ -71,7 +71,7 @@ const Login = () => {
         //    console.log(JSON.stringify({username: data.username, password: data.password}))
         const status = response.status;
         const resData = await response.json();
-        // console.log(response.status);
+        // console.log(resData);
         return { resData, status };
     }
 

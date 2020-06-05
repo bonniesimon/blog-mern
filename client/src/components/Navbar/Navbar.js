@@ -12,7 +12,7 @@ const Navbar = () => {
         const user = getStoredUser();
         if (user) {
             setUser(user);
-            console.log(user);
+            // console.log(user);
         }
 
     }, [])

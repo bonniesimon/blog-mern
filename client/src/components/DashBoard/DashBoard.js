@@ -5,8 +5,8 @@ import { removeStoredAuthToken, getStoredAuthToken, getStoredUser, removeStoredU
 
 
 //*COMPONENT IMPORT
-import Navbar from './../Navbar';
 import PostItem from '../PostItem/PostItem';
+import Navbar from './../Navbar';
 
 const DashBoard = () => {
     const [user, setUser] = useState({});
@@ -28,7 +28,8 @@ const DashBoard = () => {
         });
         const resData = await response.json();
         setPosts(resData);
-        console.log(resData);
+        console.log(new Date(resData[1].date).toLocaleDateString());
+
     }
 
 
@@ -59,7 +60,7 @@ const DashBoard = () => {
                 <h1>Welcome to the DashBoard!</h1>
                 <p>Welcome {user.username}</p>
                 <button onClick={logOutHandler}>logout</button>
-                {posts.map((post) => <PostItem title={post.title} body={post.body} />)}
+                {posts.map((post) => <PostItem key={post._id} title={post.title} body={post.body} date={new Date(post.date).toLocaleDateString()} />)}
             </div>
         </>
     )

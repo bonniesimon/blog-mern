@@ -3,11 +3,18 @@
     width: 60%;
     min-height: 3rem;
     background-color: $dark-blue;
+    color:$white;
+    border-radius: 10px;
     margin: 3rem auto;
+    box-shadow:  6px 2px 16px 0px rgba(136, 165, 191, 0.48) , -6px -2px 16px 0px rgba(255, 255, 255, 0.8) ;
     &__title{
         text-align: left;
-        padding: 0.8rem;
-        
+        padding: 0.5rem 0.8rem;
+    }
+    &__date{
+        padding: 0 1rem;
+        font-size: 0.8rem;
+        opacity: 0.5;
     }
     &__body{
         padding: 1rem; 
