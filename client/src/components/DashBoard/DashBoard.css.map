@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,MAAM,EAAE,MAAM;EACd,KAAK,EAAE,GAAG;EACV,UAAU,EAAE,MAAM;CACrB",
+    "sources": [
+        "DashBoard.scss"
+    ],
+    "names": [],
+    "file": "DashBoard.css"
+}

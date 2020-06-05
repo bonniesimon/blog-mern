@@ -8,6 +8,9 @@ import { removeStoredAuthToken, getStoredAuthToken, getStoredUser, removeStoredU
 import PostItem from '../PostItem/PostItem';
 import Navbar from './../Navbar';
 
+//*IMPORT CSS
+import './DashBoard.css';
+
 const DashBoard = () => {
     const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
@@ -57,9 +60,11 @@ const DashBoard = () => {
         <>
             <Navbar />
             <div>
-                <h1>Welcome to the DashBoard!</h1>
-                <p>Welcome {user.username}</p>
-                <button onClick={logOutHandler}>logout</button>
+                <div className="header-section" >
+                    <h1>Welcome to the DashBoard!</h1>
+                    <p>Welcome {user.username}</p>
+                    <button onClick={logOutHandler}>logout</button>
+                </div>
                 {posts.map((post) => <PostItem key={post._id} title={post.title} body={post.body} date={new Date(post.date).toLocaleDateString()} />)}
             </div>
         </>

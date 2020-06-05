@@ -23,11 +23,11 @@ router.get('/', async (req ,res) => {
 })
 
 router.post('/', authenticateJWT, (req, res) => {
-    const {title, body, user} = req.body;
+    const {title, body, userId} = req.body;
     let newPost = new PostModel({
         title,
         body,
-        user
+        userId
     })
 
     newPost.save()
