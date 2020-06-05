@@ -17,10 +17,10 @@ const postSchema = new mongoose.Schema({
         type:Date,
         default: Date.now()
     },
-    user:[{
+    user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'userModel'
-    }]
+    }
 })
 
 module.exports = mongoose.model('PostModel', postSchema);
