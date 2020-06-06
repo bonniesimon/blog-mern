@@ -20,6 +20,10 @@ const postSchema = new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'userModel'
+    },
+    username:{
+        type:String,
+        required:true
     }
 })
 

@@ -17,9 +17,6 @@ router.get('/', async (req ,res) => {
     // *posts type=Array[objects]
     const posts = await PostModel.find();
     if(posts){
-        console.log(posts[4].userId);
-        const user = await userModel.find({_id:posts[4].userId})
-        console.log(user);
         res.json(posts).status(200);
     }else{
     }
@@ -27,11 +24,12 @@ router.get('/', async (req ,res) => {
 })
 
 router.post('/', authenticateJWT, (req, res) => {
-    const {title, body, userId} = req.body;
+    const {title, body, userId, username} = req.body;
     let newPost = new PostModel({
         title,
         body,
-        userId
+        userId,
+        username
     })
 
     newPost.save()

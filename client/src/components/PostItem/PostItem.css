@@ -24,10 +24,18 @@
   font-size: 1.4rem;
 }
 
+.post__username {
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 0 1rem;
+  opacity: 0.7;
+}
+
 .post__date {
   padding: 0 1rem;
   font-size: 0.8rem;
   opacity: 0.5;
+  display: inline-block;
 }
 
 .post__body {

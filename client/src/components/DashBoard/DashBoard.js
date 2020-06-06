@@ -32,8 +32,7 @@ const DashBoard = () => {
         });
         const resData = await response.json();
         setPosts(resData);
-        console.log(new Date(resData[1].date).toLocaleDateString());
-
+        
     }
 
 
@@ -66,7 +65,7 @@ const DashBoard = () => {
                     <p>Welcome {user.username}</p>
                     <button onClick={logOutHandler}>logout</button>
                 </div>
-                {posts.map((post) => <PostItem key={post._id} title={post.title} body={post.body} date={new Date(post.date).toLocaleDateString()} />)}
+                {posts.map((post) => <PostItem key={post._id} username={post.username} title={post.title} body={post.body} date={new Date(post.date).toLocaleDateString()} />)}
             </div>
         </>
     )
