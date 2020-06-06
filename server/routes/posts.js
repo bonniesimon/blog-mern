@@ -16,6 +16,7 @@ router.get('/', async (req ,res) => {
     // *posts type=Array[objects]
     const posts = await PostModel.find();
     if(posts){
+        console.log(posts[4].userId);
         res.json(posts).status(200);
     }else{
     }
