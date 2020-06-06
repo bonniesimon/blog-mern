@@ -24,6 +24,11 @@
   font-size: 1.4rem;
 }
 
+.post__title a {
+  text-decoration: none;
+  color: #f7f7f7;
+}
+
 .post__username {
   display: inline-block;
   font-size: 0.9rem;

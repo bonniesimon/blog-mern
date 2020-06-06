@@ -65,7 +65,7 @@ const DashBoard = () => {
                     <p>Welcome {user.username}</p>
                     <button onClick={logOutHandler}>logout</button>
                 </div>
-                {posts.map((post) => <PostItem key={post._id} username={post.username} title={post.title} body={post.body} date={new Date(post.date).toLocaleDateString()} />)}
+                {posts.map((post) => <PostItem key={post._id} id={post._id} username={post.username} title={post.title} body={post.body} date={new Date(post.date).toLocaleDateString()} />)}
             </div>
         </>
     )

@@ -1,5 +1,6 @@
 @import './../../CSS/colors';
 .post{
+    
     width: 60%;
     min-height: 3rem;
     background-color: $dark-blue;
@@ -11,6 +12,10 @@
         text-align: left;
         padding: 0.5rem 0.8rem;
         font-size: 1.4rem;
+        & a{
+            text-decoration: none;
+            color: $white;
+        }
     }
     &__username{
         display: inline-block;
