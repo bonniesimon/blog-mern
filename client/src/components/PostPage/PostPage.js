@@ -1,11 +1,11 @@
 import React from 'react'
 
-const PostPage = ({location}) => {
-    console.log(location.state);
+const PostPage = ({location, match}) => {
+    console.log(match.params);
     
     return (
         <div>
-            
+            <h1>postPage</h1>
         </div>
     )
 }
