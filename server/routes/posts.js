@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
  */
 
 const PostModel = require('./../models/postSchema');
+const userModel = require('./../models/Users');
 
 // *Importing auth middleware
 const authenticateJWT = require('./utilities/authenticateJWT');
@@ -17,6 +18,8 @@ router.get('/', async (req ,res) => {
     const posts = await PostModel.find();
     if(posts){
         console.log(posts[4].userId);
+        const user = await userModel.find({_id:posts[4].userId})
+        console.log(user);
         res.json(posts).status(200);
     }else{
     }
