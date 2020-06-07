@@ -23,6 +23,14 @@ router.get('/', async (req ,res) => {
     res.status(503);
 })
 
+
+router.get('/:postId', async (req, res) => {
+    console.log(req.params.postId);
+    const post = await PostModel.findOne({id:req.params.postId});
+    console.log(post)
+    res.json(post)
+} )
+
 router.post('/', authenticateJWT, (req, res) => {
     const {title, body, userId, username} = req.body;
     let newPost = new PostModel({
@@ -37,5 +45,6 @@ router.post('/', authenticateJWT, (req, res) => {
         .catch(err => console.log(err));
     res.status(200).json(newPost)
 })
+
 
 module.exports = router;
