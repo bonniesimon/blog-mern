@@ -17,7 +17,7 @@ function App() {
       <Router>
           <Switch>
               <PrivateRoute exact path="/" component={DashBoard} />
-              <PrivateRoute exact path="/posts/:postId" component={PostPage} />
+              <PrivateRoute exact path="/post/:postId" component={PostPage} />
               <Route path="/login" component={Login}/>
               <Route path='/register' component={Register}/>
           </Switch>

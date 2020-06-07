@@ -2,19 +2,23 @@ import React, {useState, useEffect} from 'react'
 
 const PostPage = ({location, match}) => {
     const [postDetails, setPostDetails] = useState({}); 
-    console.log(match.params);
-    console.log(location);
     
-    useEffect(() => {
-        if(location.state !== undefined){
-            setPostDetails(location.state)
-        }else{
-            fetchPostDetails(match.params.postId);
-        }
-    })
+    useEffect( () => {
+        (async () => {
 
-    const fetchPostDetails = (postId) => {
-        
+            if(location.state !== undefined){
+                setPostDetails(location.state)
+            }else{
+                const resPostDetails = await fetchPostDetails(match.params.postId);
+                setPostDetails(resPostDetails);
+            }
+        })()
+    }, [])
+    
+    const fetchPostDetails = async (postId) => {
+        const response = await fetch(`http://localhost:5000/posts/${postId}`);
+        const resPostDetails = await response.json();
+        return resPostDetails;
     }
 
     return (
