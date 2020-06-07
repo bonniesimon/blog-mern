@@ -25,9 +25,7 @@ router.get('/', async (req ,res) => {
 
 
 router.get('/:postId', async (req, res) => {
-    console.log(req.params.postId);
-    const post = await PostModel.findOne({id:req.params.postId});
-    console.log(post)
+    const post = await PostModel.findOne({_id:req.params.postId});
     res.json(post)
 } )
 
