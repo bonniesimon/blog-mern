@@ -9,6 +9,7 @@ import Login from './components/Login';
 import DashBoard from './components/DashBoard';
 import Register from './components/Register';
 import PostPage from './components/PostPage/PostPage';
+import WritePost from './components/WritePost/WritePost';
 // import Navbar from './components/Navbar';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Switch>
               <PrivateRoute exact path="/" component={DashBoard} />
               <PrivateRoute exact path="/post/:postId" component={PostPage} />
+              <PrivateRoute exact path="/write" component={WritePost}/>
               <Route path="/login" component={Login}/>
               <Route path='/register' component={Register}/>
           </Switch>
